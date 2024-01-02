@@ -1,0 +1,103 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+            <meta
+                name="viewport"
+                content="width=device-width, initia;-scale=1.0"
+            />
+            <title>Seascape Resorts</title>
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link
+                rel="preconnect"
+                href="https://fonts.gstatic.com"
+                crossorigin
+            />
+            <link
+                href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+                rel="stylesheet"
+            />
+            <link rel="stylesheet" href="style.css" />
+        </head>
+        <body>
+            <div class="navbar">
+                <h1>SeaScape Resort🏖️</h1>
+                <h1><input type="text" id="time" readonly /></h1>
+                <div><button onclick="changeTheme()">Change theme</button></div>
+            </div>
+
+            <div class="container">
+                <div class="heading">
+                    <h1>Welcome!</h1>
+                    <h2><i>Escape , Relax and Unwind</i></h2>
+                </div>
+
+                <div class="full-img" id="fullImgBox">
+                    <img src="images/img1.jpg" id="fullImg" />
+                    <span onclick="closeFullImg()">X</span>
+                </div>
+            </div>
+
+            <div class="image-gallery">
+                <img
+                    src="https://imageio.forbes.com/specials-images/imageserve/648f06a6152abcf5ef5e44a9/e125175d2a6f8fed0c71b983c4d1368d/960x0.jpg?format=jpg&width=960"
+                    onclick="openFullImg(this.src)"
+                />
+                <img
+                    src="https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    onclick="openFullImg(this.src)"
+                />
+                <img
+                    src="https://imageio.forbes.com/specials-images/imageserve/65280003a36cd6aea36f399a/Maldives-hotel-beach-resort-on-tropical-Island-with-aerial-drone-view/0x0.jpg?format=jpg&height=1406&width=2501"
+                    onclick="openFullImg(this.src)"
+                />
+                <img
+                    src="https://www.savoredjourneys.com/wp-content/uploads/2019/07/resort-dining.jpg"
+                    onclick="openFullImg(this.src)"
+                />
+                <img
+                    src="https://images.pexels.com/photos/1430677/pexels-photo-1430677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    onclick="openFullImg(this.src)"
+                />
+                <img
+                    src="https://images.pexels.com/photos/1449767/pexels-photo-1449767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    onclick="openFullImg(this.src)"
+                />
+            </div>
+
+            <div class="footer"><h2>Made with 🤍 by Aryan</h2></div>
+            <script>
+                var fullImBox = document.getElementById("fullImgBox");
+                var fullImg = document.getElementById("fullImg");
+
+                timeSetter();
+                function timeSetter() {
+                    var time = document.getElementById("time");
+                    time.value = "";
+                    var currentTime = new Date();
+                    var hours = currentTime.getHours();
+                    var minutes = currentTime.getMinutes();
+                    time.value = hours + ":" + minutes;
+                    // console.log(hours + ":" + minutes);
+                    setTimeout(timeSetter, 1000);
+                }
+
+                var i = 0;
+                function changeTheme() {
+                    var themes = ["#0096c7", "#ddb892", "#93bce1"];
+                    var bodyStyle = document.body.style;
+                    bodyStyle.backgroundColor = themes[i];
+                    i++;
+                    i = i == themes.length ? (i = 0) : i;
+                    alert("Theme changed successfully!");
+                }
+                function openFullImg(pic) {
+                    fullImgBox.style.display = "flex";
+                    fullImg.src = pic;
+                }
+                function closeFullImg() {
+                    fullImgBox.style.display = "none";
+                }
+            </script>
+        </body>
+    </html>
+</DOCTYPE!>
